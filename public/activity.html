@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학습활동 추천 | 수업 준비 도우미</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1>수업 준비 도우미</h1>
+      <nav aria-label="기능">
+        <ul>
+          <li><a href="quiz.html">퀴즈 생성기</a></li>
+          <li><a href="activity.html" aria-current="page">학습활동 추천</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="main">
+      <h2>학습활동 추천</h2>
+      <div class="layout">
+        <section class="card" aria-labelledby="form-title">
+          <h3 id="form-title">입력</h3>
+          <form id="input-form" data-title="학습활동 추천" data-kind="activity" novalidate>
+            <div class="field">
+              <label for="subject">과목 <span class="req">필수</span></label>
+              <input id="subject" name="subject" type="text" required data-label="과목">
+            </div>
+            <div class="field">
+              <label for="grade">학년 <span class="req">필수</span></label>
+              <select id="grade" name="grade" required data-label="학년">
+                <option value="">선택하세요</option>
+                <option>초1</option><option>초2</option><option>초3</option>
+                <option>초4</option><option>초5</option><option>초6</option>
+                <option>중1</option><option>중2</option><option>중3</option>
+                <option>고1</option><option>고2</option><option>고3</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="goal">단원 또는 학습 목표 <span class="req">필수</span></label>
+              <textarea id="goal" name="goal" rows="3" required data-label="단원 또는 학습 목표"></textarea>
+            </div>
+            <div class="field">
+              <label for="minutes">수업 시간 (분) <span class="req">필수</span></label>
+              <input id="minutes" name="minutes" type="number" min="1" value="40" required data-min="1" data-unit="분" data-label="수업 시간">
+            </div>
+            <fieldset>
+              <legend>학생 특성</legend>
+              <div class="options">
+                <label><input type="checkbox" name="traits" value="활동 선호" data-label="학생 특성"> 활동 선호</label>
+                <label><input type="checkbox" name="traits" value="어려움" data-label="학생 특성"> 어려움</label>
+                <label><input type="checkbox" name="traits" value="학급 인원 규모" data-label="학생 특성"> 학급 인원 규모</label>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label for="format">활동 형태</label>
+              <select id="format" name="format" data-label="활동 형태">
+                <option value="">선택 안 함</option>
+                <option>개별</option>
+                <option>짝</option>
+                <option>모둠</option>
+                <option>전체</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="group-size">모둠 인원 <span class="req">필수</span></label>
+              <input id="group-size" name="groupSize" type="number" min="2" max="6" required data-label="모둠 인원" data-min="2" data-max="6" data-unit="명">
+            </div>
+            <button class="primary" type="submit">만들기</button>
+          </form>
+        </section>
+        <section class="card result-card" aria-labelledby="result-title">
+          <h3 id="result-title">결과</h3>
+          <div id="result" aria-live="polite">
+            <p class="empty">아직 결과가 없습니다. 왼쪽 입력을 채우고 만들기를 누르세요.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="js/form-check.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
